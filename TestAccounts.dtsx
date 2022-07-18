@@ -1,0 +1,2354 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/18/2022 9:09:33 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VA00WKS081"
+  DTS:CreatorName="ASARVA\perri"
+  DTS:DTSID="{6349BB74-D6C0-4D75-8F04-52306A61D1F4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1040"
+  DTS:ObjectName="TestAccounts"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{08910A19-275B-4FE6-8536-DA9F919A6D53}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Attività Flusso di dati"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Attività Flusso di dati"
+      DTS:DTSID="{829AAC52-5E49-4E24-AEFB-CBE10F9CAC2C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Attività Flusso di dati"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Attività Flusso di dati\Destinazione OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destinazione OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;4"
+              description="Destinazione OLE DB"
+              name="Destinazione OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowset">[Account_TEST_ELIMINARE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL da eseguire."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la modalità utilizzata per accedere al database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se i valori specificati per le colonne Identity verranno copiati nella destinazione. Se false, i valori delle colonne Identity verranno generati automaticamente nella destinazione. Applicabile solo se è abilitato il caricamento rapido."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se per le colonne con valori Null, tali valori verranno inseriti nella destinazione. Se false, per le colonne con valori Null verranno inseriti i valori predefiniti corrispondenti nella destinazione. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica le opzioni da utilizzare con il caricamento rapido. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica se vengono eseguiti commit durante l'inserimento dei dati. Il valore 0 indica che verrà eseguito un solo commit al termine dell'inserimento dei dati. Applicabile solo se è attivato il caricamento rapido."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Attività Flusso di dati\Destinazione OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{13F7E73D-FCC7-4933-9428-26E89EF117CA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[va00sql11_apps.AsarvaCRM_ETL]"
+                  description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB]"
+                  errorOrTruncationOperation="Inserimento"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input destinazione OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[crmGUID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="36"
+                      cachedName="crmGUID"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[crmGUID]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[crmGUID]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[codFiscale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="codFiscale"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[codFiscale]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[codFiscale]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[pIva]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="pIva"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[pIva]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pIva]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[ragioneSociale]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ragioneSociale"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[ragioneSociale]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[ragioneSociale]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[email]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[telefono]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="telefono"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[telefono]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[telefono]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cellulare]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cellulare"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cellulare]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cellulare]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[fax]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="fax"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[fax]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[fax]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[pec]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="pec"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[pec]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pec]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[website]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="website"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[website]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[website]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[dataUltimoAggiornamento]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dataUltimoAggiornamento"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[dataUltimoAggiornamento]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[dataUltimoAggiornamento]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[billing_address_street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="billing_address_street"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_street]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_street]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[billing_address_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="billing_address_city"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_city]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_city]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[billing_address_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="billing_address_state"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_state]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_state]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[billing_address_postalcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="billing_address_postalcode"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_postalcode]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_postalcode]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_numrea_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_numrea_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_numrea_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numrea_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_fonte_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_fonte_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_fonte_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fonte_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_provrea_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_provrea_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_provrea_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_provrea_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_ragionesoc_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_ragionesoc_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ragionesoc_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ragionesoc_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_naturagiur_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_naturagiur_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_naturagiur_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_naturagiur_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_regione_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_regione_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_regione_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_regione_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_areageo_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_areageo_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_areageo_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_areageo_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_facebook_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_facebook_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_facebook_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_facebook_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_twitter_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_twitter_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_twitter_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_twitter_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_linkedin_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_linkedin_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_linkedin_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_linkedin_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_altrisocial_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_altrisocial_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_altrisocial_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_altrisocial_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_ateco_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_ateco_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ateco_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ateco_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_datacostituzione_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_datacostituzione_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datacostituzione_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datacostituzione_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_datarea_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_datarea_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datarea_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datarea_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_capitalesociale_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_capitalesociale_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_capitalesociale_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_capitalesociale_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_numdipendenti_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_numdipendenti_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_numdipendenti_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numdipendenti_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_classedipendenti_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_classedipendenti_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_classedipendenti_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classedipendenti_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_annofatturato_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_annofatturato_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_annofatturato_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_annofatturato_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_classefatturato_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_classefatturato_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_classefatturato_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classefatturato_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_fatturato_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_fatturato_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_fatturato_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fatturato_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_nomegruppo_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_nomegruppo_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_nomegruppo_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_nomegruppo_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_startup_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_startup_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_startup_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_startup_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_ricavi_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_ricavi_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ricavi_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ricavi_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_datachiusurabilancio_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_datachiusurabilancio_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datachiusurabilancio_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datachiusurabilancio_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_quotata_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_quotata_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_quotata_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_quotata_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_studio_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_studio_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_studio_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_studio_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_telefono1_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_telefono1_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono1_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono1_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_telefono2_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_telefono2_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono2_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono2_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_telefono3_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_telefono3_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono3_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono3_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_email_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="cerved_email_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_email_direzione_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="cerved_email_direzione_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_direzione_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_direzione_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_email_amministrazione_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="cerved_email_amministrazione_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_amministrazione_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_amministrazione_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_email_altre_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="cerved_email_altre_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_altre_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_altre_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_tipologiasede_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_tipologiasede_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_tipologiasede_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_tipologiasede_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_ultimamodifica_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_ultimamodifica_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ultimamodifica_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ultimamodifica_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[cerved_website_c]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="cerved_website_c"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_website_c]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_website_c]" />
+                    <inputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].Columns[DataRecord]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataRecord"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[DataRecord]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[DataRecord]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[crmGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="crmGUID" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[codFiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codFiscale" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[pIva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="pIva" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[ragioneSociale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ragioneSociale" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cellulare]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cellulare" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[fax]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="fax" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[pec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="pec" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[website]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="website" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[dataUltimoAggiornamento]"
+                      dataType="dbTimeStamp"
+                      name="dataUltimoAggiornamento" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="billing_address_street" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="billing_address_city" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="billing_address_state" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[billing_address_postalcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="billing_address_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_numrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_numrea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_fonte_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_fonte_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_provrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_provrea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ragionesoc_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ragionesoc_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_naturagiur_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_naturagiur_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_regione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_regione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_areageo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_areageo_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_facebook_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_facebook_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_twitter_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_twitter_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_linkedin_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_linkedin_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_altrisocial_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_altrisocial_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ateco_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ateco_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datacostituzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datacostituzione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datarea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datarea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_capitalesociale_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_capitalesociale_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_numdipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_numdipendenti_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_classedipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_classedipendenti_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_annofatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_annofatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_classefatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_classefatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_fatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_fatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_nomegruppo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_nomegruppo_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_startup_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_startup_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ricavi_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ricavi_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_datachiusurabilancio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datachiusurabilancio_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_quotata_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_quotata_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_studio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_studio_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono1_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono1_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono2_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono2_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_telefono3_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono3_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_direzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_direzione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_amministrazione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_amministrazione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_email_altre_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_altre_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_tipologiasede_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_tipologiasede_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_ultimamodifica_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ultimamodifica_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[cerved_website_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_website_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB].ExternalColumns[DataRecord]"
+                      dataType="dbTimeStamp"
+                      name="DataRecord" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Attività Flusso di dati\Destinazione OLE DB.Outputs[Output errori destinazione OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Output errori destinazione OLE DB"
+                  synchronousInputId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Attività Flusso di dati\Destinazione OLE DB.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Destinazione OLE DB.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Attività Flusso di dati\Destinazione OLE DB.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Attività Flusso di dati\Origine OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origine OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;7"
+              description="Origine OLE DB"
+              name="Origine OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowset">[SuiteCRM].[account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL da eseguire."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP 100 * FROM SuiteCRM.Account</property>
+                <property
+                  dataType="System.String"
+                  description="Variabile che contiene il comando SQL da eseguire."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifica la modalità utilizzata per accedere al database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mapping tra i parametri nel comando SQL e le variabili."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Attività Flusso di dati\Origine OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{13F7E73D-FCC7-4933-9428-26E89EF117CA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[va00sql11_apps.AsarvaCRM_ETL]"
+                  description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB]"
+                  name="Output origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[crmGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[crmGUID]"
+                      length="36"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[crmGUID]"
+                      name="crmGUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[codFiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[codFiscale]"
+                      length="16"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[codFiscale]"
+                      name="codFiscale"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pIva]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[pIva]"
+                      length="11"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pIva]"
+                      name="pIva"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[ragioneSociale]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[ragioneSociale]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[ragioneSociale]"
+                      name="ragioneSociale"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[email]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[telefono]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[telefono]"
+                      name="telefono"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cellulare]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cellulare]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cellulare]"
+                      name="cellulare"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[fax]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[fax]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[fax]"
+                      name="fax"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pec]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[pec]"
+                      length="300"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[pec]"
+                      name="pec"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[website]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[website]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[website]"
+                      name="website"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[dataUltimoAggiornamento]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[dataUltimoAggiornamento]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[dataUltimoAggiornamento]"
+                      name="dataUltimoAggiornamento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_street]"
+                      length="150"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_street]"
+                      name="billing_address_street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_city]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_city]"
+                      name="billing_address_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_state]"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_state]"
+                      name="billing_address_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_postalcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_postalcode]"
+                      length="20"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[billing_address_postalcode]"
+                      name="billing_address_postalcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_numrea_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numrea_c]"
+                      name="cerved_numrea_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fonte_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_fonte_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fonte_c]"
+                      name="cerved_fonte_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_provrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_provrea_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_provrea_c]"
+                      name="cerved_provrea_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ragionesoc_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ragionesoc_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ragionesoc_c]"
+                      name="cerved_ragionesoc_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_naturagiur_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_naturagiur_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_naturagiur_c]"
+                      name="cerved_naturagiur_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_regione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_regione_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_regione_c]"
+                      name="cerved_regione_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_areageo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_areageo_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_areageo_c]"
+                      name="cerved_areageo_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_facebook_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_facebook_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_facebook_c]"
+                      name="cerved_facebook_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_twitter_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_twitter_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_twitter_c]"
+                      name="cerved_twitter_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_linkedin_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_linkedin_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_linkedin_c]"
+                      name="cerved_linkedin_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_altrisocial_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_altrisocial_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_altrisocial_c]"
+                      name="cerved_altrisocial_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ateco_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ateco_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ateco_c]"
+                      name="cerved_ateco_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datacostituzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datacostituzione_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datacostituzione_c]"
+                      name="cerved_datacostituzione_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datarea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datarea_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datarea_c]"
+                      name="cerved_datarea_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_capitalesociale_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_capitalesociale_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_capitalesociale_c]"
+                      name="cerved_capitalesociale_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numdipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_numdipendenti_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_numdipendenti_c]"
+                      name="cerved_numdipendenti_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classedipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_classedipendenti_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classedipendenti_c]"
+                      name="cerved_classedipendenti_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_annofatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_annofatturato_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_annofatturato_c]"
+                      name="cerved_annofatturato_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classefatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_classefatturato_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_classefatturato_c]"
+                      name="cerved_classefatturato_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_fatturato_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_fatturato_c]"
+                      name="cerved_fatturato_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_nomegruppo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_nomegruppo_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_nomegruppo_c]"
+                      name="cerved_nomegruppo_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_startup_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_startup_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_startup_c]"
+                      name="cerved_startup_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ricavi_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ricavi_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ricavi_c]"
+                      name="cerved_ricavi_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datachiusurabilancio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datachiusurabilancio_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_datachiusurabilancio_c]"
+                      name="cerved_datachiusurabilancio_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_quotata_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_quotata_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_quotata_c]"
+                      name="cerved_quotata_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_studio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_studio_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_studio_c]"
+                      name="cerved_studio_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono1_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono1_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono1_c]"
+                      name="cerved_telefono1_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono2_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono2_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono2_c]"
+                      name="cerved_telefono2_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono3_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono3_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_telefono3_c]"
+                      name="cerved_telefono3_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_c]"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_c]"
+                      name="cerved_email_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_direzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_direzione_c]"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_direzione_c]"
+                      name="cerved_email_direzione_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_amministrazione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_amministrazione_c]"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_amministrazione_c]"
+                      name="cerved_email_amministrazione_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_altre_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_altre_c]"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_email_altre_c]"
+                      name="cerved_email_altre_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_tipologiasede_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_tipologiasede_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_tipologiasede_c]"
+                      name="cerved_tipologiasede_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ultimamodifica_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ultimamodifica_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_ultimamodifica_c]"
+                      name="cerved_ultimamodifica_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_website_c]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_website_c]"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[cerved_website_c]"
+                      name="cerved_website_c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[DataRecord]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversione"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[DataRecord]"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].Columns[DataRecord]"
+                      name="DataRecord"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[crmGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      name="crmGUID" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[codFiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="codFiscale" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[pIva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="pIva" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[ragioneSociale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ragioneSociale" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="telefono" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cellulare]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cellulare" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[fax]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="fax" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[pec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      name="pec" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[website]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="website" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[dataUltimoAggiornamento]"
+                      dataType="dbTimeStamp"
+                      name="dataUltimoAggiornamento" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="billing_address_street" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="billing_address_city" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="billing_address_state" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[billing_address_postalcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="billing_address_postalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_numrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_numrea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_fonte_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_fonte_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_provrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_provrea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ragionesoc_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ragionesoc_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_naturagiur_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_naturagiur_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_regione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_regione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_areageo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_areageo_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_facebook_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_facebook_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_twitter_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_twitter_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_linkedin_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_linkedin_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_altrisocial_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_altrisocial_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ateco_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ateco_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datacostituzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datacostituzione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datarea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datarea_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_capitalesociale_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_capitalesociale_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_numdipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_numdipendenti_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_classedipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_classedipendenti_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_annofatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_annofatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_classefatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_classefatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_fatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_fatturato_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_nomegruppo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_nomegruppo_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_startup_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_startup_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ricavi_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ricavi_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_datachiusurabilancio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_datachiusurabilancio_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_quotata_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_quotata_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_studio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_studio_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono1_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono1_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono2_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono2_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_telefono3_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_telefono3_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_direzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_direzione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_amministrazione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_amministrazione_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_email_altre_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="cerved_email_altre_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_tipologiasede_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_tipologiasede_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_ultimamodifica_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_ultimamodifica_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[cerved_website_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cerved_website_c" />
+                    <externalMetadataColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB].ExternalColumns[DataRecord]"
+                      dataType="dbTimeStamp"
+                      name="DataRecord" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB]"
+                  isErrorOut="true"
+                  name="Output errori origine OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[crmGUID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[crmGUID]"
+                      name="crmGUID" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[codFiscale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[codFiscale]"
+                      name="codFiscale" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[pIva]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[pIva]"
+                      name="pIva" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ragioneSociale]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ragioneSociale]"
+                      name="ragioneSociale" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[telefono]"
+                      name="telefono" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cellulare]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cellulare]"
+                      name="cellulare" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[fax]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[fax]"
+                      name="fax" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[pec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="300"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[pec]"
+                      name="pec" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[website]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[website]"
+                      name="website" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[dataUltimoAggiornamento]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[dataUltimoAggiornamento]"
+                      name="dataUltimoAggiornamento" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_street]"
+                      name="billing_address_street" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_city]"
+                      name="billing_address_city" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_state]"
+                      name="billing_address_state" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_postalcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[billing_address_postalcode]"
+                      name="billing_address_postalcode" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_numrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_numrea_c]"
+                      name="cerved_numrea_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_fonte_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_fonte_c]"
+                      name="cerved_fonte_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_provrea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_provrea_c]"
+                      name="cerved_provrea_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ragionesoc_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ragionesoc_c]"
+                      name="cerved_ragionesoc_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_naturagiur_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_naturagiur_c]"
+                      name="cerved_naturagiur_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_regione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_regione_c]"
+                      name="cerved_regione_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_areageo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_areageo_c]"
+                      name="cerved_areageo_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_facebook_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_facebook_c]"
+                      name="cerved_facebook_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_twitter_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_twitter_c]"
+                      name="cerved_twitter_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_linkedin_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_linkedin_c]"
+                      name="cerved_linkedin_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_altrisocial_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_altrisocial_c]"
+                      name="cerved_altrisocial_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ateco_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ateco_c]"
+                      name="cerved_ateco_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datacostituzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datacostituzione_c]"
+                      name="cerved_datacostituzione_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datarea_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datarea_c]"
+                      name="cerved_datarea_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_capitalesociale_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_capitalesociale_c]"
+                      name="cerved_capitalesociale_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_numdipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_numdipendenti_c]"
+                      name="cerved_numdipendenti_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_classedipendenti_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_classedipendenti_c]"
+                      name="cerved_classedipendenti_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_annofatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_annofatturato_c]"
+                      name="cerved_annofatturato_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_classefatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_classefatturato_c]"
+                      name="cerved_classefatturato_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_fatturato_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_fatturato_c]"
+                      name="cerved_fatturato_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_nomegruppo_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_nomegruppo_c]"
+                      name="cerved_nomegruppo_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_startup_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_startup_c]"
+                      name="cerved_startup_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ricavi_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ricavi_c]"
+                      name="cerved_ricavi_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datachiusurabilancio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_datachiusurabilancio_c]"
+                      name="cerved_datachiusurabilancio_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_quotata_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_quotata_c]"
+                      name="cerved_quotata_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_studio_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_studio_c]"
+                      name="cerved_studio_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono1_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono1_c]"
+                      name="cerved_telefono1_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono2_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono2_c]"
+                      name="cerved_telefono2_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono3_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_telefono3_c]"
+                      name="cerved_telefono3_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_c]"
+                      name="cerved_email_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_direzione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_direzione_c]"
+                      name="cerved_email_direzione_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_amministrazione_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_amministrazione_c]"
+                      name="cerved_email_amministrazione_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_altre_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_email_altre_c]"
+                      name="cerved_email_altre_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_tipologiasede_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_tipologiasede_c]"
+                      name="cerved_tipologiasede_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ultimamodifica_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_ultimamodifica_c]"
+                      name="cerved_ultimamodifica_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_website_c]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[cerved_website_c]"
+                      name="cerved_website_c" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[DataRecord]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[DataRecord]"
+                      name="DataRecord" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Attività Flusso di dati.Paths[Output origine OLE DB]"
+              endId="Package\Attività Flusso di dati\Destinazione OLE DB.Inputs[Input destinazione OLE DB]"
+              name="Output origine OLE DB"
+              startId="Package\Attività Flusso di dati\Origine OLE DB.Outputs[Output origine OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B264758D-230C-40BF-B772-5F32035D91FF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{13F7E73D-FCC7-4933-9428-26E89EF117CA}"
+          SQLTask:SqlStatementSource="DELETE FROM ACCOUNT_TEST_ELIMINARE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5CF95EA5-3419-4385-AA11-A7F32AA9A4A9}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Attività Flusso di dati" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Attività Flusso di dati"
+          TopLeft="140.833333333333,165.833333333333" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="65.8333333333333,49.1666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="150.833333333333,91.1666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80,74.6666666666667"
+              Start="0,0"
+              End="80,67.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.3333333333333"
+                    Point2="0,37.3333333333333"
+                    Point3="4,37.3333333333333" />
+                  <mssgle:LineSegment
+                    End="76,37.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76,37.3333333333333"
+                    Point2="80,37.3333333333333"
+                    Point3="80,41.3333333333333" />
+                  <mssgle:LineSegment
+                    End="80,67.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Attività Flusso di dati">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Attività Flusso di dati\Origine OLE DB"
+          TopLeft="113,75" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Attività Flusso di dati\Destinazione OLE DB"
+          TopLeft="149,239" />
+        <EdgeLayout
+          Id="Package\Attività Flusso di dati.Paths[Output origine OLE DB]"
+          TopLeft="192,117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,122"
+              Start="0,0"
+              End="50,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57"
+                    Point2="0,61"
+                    Point3="4,61" />
+                  <mssgle:LineSegment
+                    End="46,61" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,61"
+                    Point2="50,61"
+                    Point3="50,65" />
+                  <mssgle:LineSegment
+                    End="50,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Attività Flusso di dati\Destinazione OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Attività Flusso di dati\Origine OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

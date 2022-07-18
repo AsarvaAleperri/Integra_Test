@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SuiteCRM32bit.osmosit"
+  DTS:DTSID="{04843308-69B2-4974-AE16-A87CDC73CF55}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=osmosit;Dsn=SuiteCRM32bit;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdIcb6xxFX0qmJlicEvZCKAAAAAACAAAAAAADZgAAwAAAABAAAAA9HL/09Jb2FflBCIaKMWoEAAAAAASAAACgAAAAEAAAAF95Bu7Ragi6xEgv2t05YalwAAAAsCcAtiDw6xlI/UB5KcGDl27YZAUwt4xy/SNAYBpF0nvImopKkf0RfZ1QKlCkGArA+EjxrPP5owEHlfDi6cmIUG7hOYuJkdYlOWScs1Zyvf8vFP4A/XWAXltnophCmypwVTfwkpkhM8GFmbF3IaCvrhQAAADDs7ke8BhZqQod7aKI8zsUckufWQ==</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
